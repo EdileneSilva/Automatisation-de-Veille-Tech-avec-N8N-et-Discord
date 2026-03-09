@@ -1,37 +1,35 @@
 # Tech Watch Automation with n8n
 
-### Project overview
+### Présentation du projet
 
-This project is an automated **tech watch system** built with **n8n**.
+Ce projet est un système automatisé de **veille technologique** construit avec **n8n**.
 
-### Technologies used
+### Technologies utilisées
 
-* n8n (workflow automation)
-* Docker (to run n8n locally)
-* Discord (for notifications)
-* RSS feeds (data sources)
+* n8n (automatisation de workflows)
+* Docker (pour exécuter n8n en local)
+* Discord (pour les notifications)
+* Flux RSS (sources de données)
 
+### Architecture du projet
 
-### Project architecture
+Le workflow suit la logique suivante :
 
-The workflow follows this logic:
+Schedule Trigger  
+↓  
+Lecture des flux RSS  
+↓  
+Filtrage des articles publiés dans les dernières 24 heures  
+↓  
+Formatage des données des articles  
+↓  
+Envoi des articles vers Discord  
 
-Schedule Trigger
-↓
-Read RSS feeds
-↓
-Filter articles published in the last 24 hours
-↓
-Format article data
-↓
-Send the articles to Discord
+Cela permet au serveur Discord de recevoir automatiquement les articles publiés dans les dernières 24 heures.
 
-This allows the Discord server to receive the articles within the last 24h automatically
+### Sources RSS
 
-
-### RSS sources
-
-RSS feeds used in this project:
+Flux RSS utilisés dans ce projet :
 
 * https://www.stat4decision.com/fr/feed/
 * https://blog.octo.com/feed/
@@ -39,50 +37,20 @@ RSS feeds used in this project:
 * https://practicaldataengineering.substack.com/feed
 * https://towardsdatascience.com/feed
 
+### Lancer le projet en local
 
-### Running the project locally
+Le projet utilise **Docker Compose** pour exécuter n8n en local.
 
-The project uses **Docker Compose** to run n8n locally.
+Assurez-vous d'abord que Docker est installé.
 
-First make sure Docker is installed.
-
-Then start the container with:
+Ensuite démarrez le conteneur avec :
 
 docker compose up -d
 
-After that open n8n in your browser:
+Après cela, ouvrez n8n dans votre navigateur :
 
 http://localhost:5678
 
-You can then import the workflow and activate it.
+Vous pouvez ensuite importer le workflow et l'activer.
 
-
-### Repository structure
-
-```
-project-folder
-│
-├── README.md
-├── Screenshot
-│   └── Screenshot.png
-└── workflows
-    ├── llm_worfflows.json
-    └── rss_workflows.json
-```
-
-### Workflow export
-
-The workflows can be exported directly from **n8n** as JSON files and stored in the repository.
-
-This allows anyone to import the workflow and run the same automation.
-
-
-### Discord integration
-
-Articles are sent automatically to a **Discord channel** using a webhook or the Discord integration inside n8n.
-
-Each message contains information such as:
-
-* article title
-* link to the article
-* short description
+### Structure du repository
