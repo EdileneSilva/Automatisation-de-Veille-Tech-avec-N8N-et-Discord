@@ -1,10 +1,10 @@
 # Tech Watch Automation with n8n
 
-## Project overview
+### Project overview
 
 This project is an automated **tech watch system** built with **n8n**.
 
-## Technologies used
+### Technologies used
 
 * n8n (workflow automation)
 * Docker (to run n8n locally)
@@ -12,7 +12,7 @@ This project is an automated **tech watch system** built with **n8n**.
 * RSS feeds (data sources)
 
 
-## Project architecture
+### Project architecture
 
 The workflow follows this logic:
 
@@ -29,7 +29,7 @@ Send the articles to Discord
 This allows the Discord server to receive the articles within the last 24h automatically
 
 
-## RSS sources
+### RSS sources
 
 RSS feeds used in this project:
 
@@ -40,43 +40,44 @@ RSS feeds used in this project:
 * https://towardsdatascience.com/feed
 
 
-## Running the project locally
+### Running the project locally
 
-The project uses **Docker** to run n8n locally.
+The project uses **Docker Compose** to run n8n locally.
 
-Start the container with Docker.
+First make sure Docker is installed.
 
-Then open n8n in your browser:
+Then start the container with:
+
+docker compose up -d
+
+After that open n8n in your browser:
 
 http://localhost:5678
 
-After that you can import the workflow and activate it.
+You can then import the workflow and activate it.
 
 
-## Repository structure
+### Repository structure
 
 ```
 project-folder
 │
-├── docker-compose.yml
-├── workflows
-│   ├── rss_workflow.json
-│   └── llm_workflow.json
-│
-├── screenshots
-│   └── discord_result.png
-│
-└── README.md
+├── README.md
+├── Screenshot
+│   └── Screenshot.png
+└── workflows
+    ├── llm_worfflows.json
+    └── rss_workflows.json
 ```
 
-## Workflow export
+### Workflow export
 
 The workflows can be exported directly from **n8n** as JSON files and stored in the repository.
 
 This allows anyone to import the workflow and run the same automation.
 
 
-## Discord integration
+### Discord integration
 
 Articles are sent automatically to a **Discord channel** using a webhook or the Discord integration inside n8n.
 
@@ -85,9 +86,3 @@ Each message contains information such as:
 * article title
 * link to the article
 * short description
-
----
-
-## Author
-
-Project created as part of an AI developer training program.
