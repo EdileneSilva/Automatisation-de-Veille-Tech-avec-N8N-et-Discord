@@ -54,3 +54,30 @@ http://localhost:5678
 Vous pouvez ensuite importer le workflow et l'activer.
 
 ### Structure du repository
+```
+project-folder
+│
+├── README.md
+├── Screenshot
+│ └── Screenshot.png
+└── workflows
+├── llm_worfflows.json
+└── rss_workflows.json
+```
+
+### Export des workflows
+
+Les workflows peuvent être exportés directement depuis **n8n** au format JSON et stockés dans le repository.
+
+Cela permet à n'importe qui d'importer le workflow et d'exécuter la même automatisation.
+
+### Intégration Discord
+
+Les articles sont envoyés automatiquement vers un **canal Discord** en utilisant un webhook ou l’intégration Discord dans n8n.
+
+Chaque message contient des informations comme :
+
+* le titre de l’article
+* le lien vers l’article
+* une courte description
+
